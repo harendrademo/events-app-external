@@ -37,7 +37,7 @@ pipeline {
             }
             steps {
                 echo 'Retrieving source from github' 
-                git branch: 'master',
+                git branch: 'main',
                     url: 'https://github.com/harendrademo/events-app-external.git'
                 echo 'Did we get the source?' 
                 sh 'ls -a'
@@ -88,7 +88,7 @@ pipeline {
                     }
             steps {
                 echo 'Set the image'
-                     sh "kubectl --kubeconfig=${WORKSPACE}/kube/.kube/config set image deployment/demo-ui [CONTAINER_NAME]=${env.imageName}:${env.BUILD_NUMBER}"
+                     sh "kubectl --kubeconfig=${WORKSPACE}/kube/.kube/config set image deployment/demo-ui  demo-ui=${env.imageName}:${env.BUILD_NUMBER}"
             }
         }     
         stage('Remove local docker image') {
