@@ -75,7 +75,7 @@ pipeline {
             steps {
                 sh "rm -rf ${WORKSPACE}/kube/"
                 echo 'Get cluster credentials'
-                sh 'gcloud container clusters get-credentials cluster-1--zone us-central1-c --project roidtc-july2022-user219'
+                sh 'gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project roidtc-july2022-user219'
             }
         }     
          stage('update k8s') {
